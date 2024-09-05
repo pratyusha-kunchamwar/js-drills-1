@@ -18,5 +18,21 @@ function usersLovevideoGames() {
     return names;
 
 }
+function usersWithCountry(targetcountry) {
+    if(targetcountry==null||targetcountry==undefined) //when the country is not found
+        return "Enter Valid country";
+    let persons = [];
+    for (let user in users) {
 
-module.exports = { usersLovevideoGames};
+        let Object = users[user];
+
+        if (Object.nationality === targetcountry) {
+            persons.push(user)
+        }
+
+    }
+    return persons;
+
+}
+
+module.exports = { usersLovevideoGames,usersWithCountry};
