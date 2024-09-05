@@ -50,5 +50,25 @@ function usersWithMastersDegree() {
     return persons;
 
 }
+var users = require('./usersdata.js');
+function designationGroupByLanguage(){
+    const group={ }
+    let regex=/(Javascript|Python|Golang)/ig
+    for(let user in users ){
+        let Object=users[user];
+        let designation=Object. desgination;
+        let language=designation.match(regex); //hear we check match with reagex
+       if(language.length==1){
+        language=language[0];
+       }
+       if(!group.hasOwnProperty(language)) //adding new property hear if not there
+       {
+        group[language]=[];
+       }
+       group[language].push(user);
+        
+    }
+    return group;
+}
 
-module.exports = { usersLovevideoGames,usersWithCountry,usersWithMastersDegree};
+module.exports = { usersLovevideoGames,usersWithCountry,usersWithMastersDegree,designationGroupByLanguage};
