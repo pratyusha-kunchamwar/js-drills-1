@@ -34,5 +34,21 @@ function usersWithCountry(targetcountry) {
     return persons;
 
 }
+var users = require('./usersdata.js');
+function usersWithMastersDegree() {
+    let persons = [];
+    let regex=/\bmasters\b/i;
+    for(let user in users) {
 
-module.exports = { usersLovevideoGames,usersWithCountry};
+        let Object= users[user];
+
+        if (regex.test(Object.qualification) ) {
+            persons.push(user)
+        }
+
+    }
+    return persons;
+
+}
+
+module.exports = { usersLovevideoGames,usersWithCountry,usersWithMastersDegree};
